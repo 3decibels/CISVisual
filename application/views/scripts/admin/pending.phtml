@@ -1,0 +1,30 @@
+<?= $this->render('header.phtml') ?>
+<?= $this->render('top.phtml') ?>
+
+<div id="Content">
+  <h1>List of Pending Titles</h1>
+<? if (! empty($this->titles)): ?>
+    <table width="90%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <th width="50%">Visual Novel Name</th>
+        <th width="25%">Submission Date</th>
+        <th width="25%">Submitting Member</th>
+      </tr>
+<? $count = 1; ?>
+<? foreach ($this->titles as $title): ?>
+      <tr class="<?= (0 == $count % 2) ? 'tr1' : 'tr2'; $count++ ?>">
+        <td width="50%"><a href="<?= $this->baseUrl . '/admin/review/' . $title['titleID'] ?>"><?= $title['titleName'] ?></a></td>
+        <td width="25%"><?= $title['titleLastUpdate'] ?></td>
+        <td width="25%"><?= $title['memberName'] ?></td>
+      </tr>
+<? endforeach; ?>
+    </table>
+<? else: ?>
+  <p>No titles to display</p>
+<? endif ?>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</div>
+
+<?= $this->render('menu.phtml') ?>
+<?= $this->render('footer.phtml') ?>

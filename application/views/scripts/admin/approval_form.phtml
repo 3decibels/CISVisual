@@ -1,0 +1,70 @@
+	<form action="<?= $this->baseUrl . '/admin/review/' . $this->data['titleID'] ?>" method="post" name="f">
+	<?= $this->errorDiv($this->errors, 'generic') ?>
+	<fieldset>
+		<legend>General Information</legend>
+			<label class="required">Title Name:</label>
+				<p class="approve_data"><strong><?= $this->escape($this->data['titleName']) ?></strong></p>
+			<label class="required">Alternate Names:</label>
+				<ul>
+<? foreach ($this->data['alternates'] as $alt): ?>
+					<li><?= $this->escape($alt['titleName']) ?><input type="checkbox" id="<?= 'alt' . $alt['alternateID'] ?>" checked="checked" name="alt[]" value="<?= $alt['alternateID'] ?>" /><label for="<?= 'alt' . $alt['alternateID'] ?>"> Approve</label></li>
+<? endforeach ?>
+				</ul>
+			<label class="required">Description:</label>
+				<p class="approve_data"><?= $this->data['titleDescription'] ?></p>
+			<label class="required">Creator:</label>
+				<p class="approve_data"><?= $this->escape($this->data['titleCreator']) ?></p>
+			<label class="required">Year of Release:</label>
+				<p class="approve_data"><?= $this->escape($this->data['titleYear']) ?></p>
+			<label class="required">Extra Comments:</label>
+				<p class="approve_data"><?= $this->escape($this->data['titleComments']) ?></p>
+	</fieldset>
+	<fieldset>
+		<legend>Gameplay Details</legend>
+			<label class="required">Release Type:</label>
+				<p class="approve_data"><?= $this->escape($this->data['titleType']) ?></p>
+			<label class="required">Plot Type:</label>
+				<p class="approve_data"><?= $this->escape($this->data['titlePlot']) ?></p>
+			<label class="required">Availability in English:</label>
+				<p class="approve_data"><?= $this->escape($this->data['titleAvailable']) ?></p>
+			<label class="required">Eroge Title:</label>
+				<p class="approve_data"><?= ($this->data['titleAdult'])? 'Yes' : 'No' ?></p>
+	</fieldset>
+	<fieldset>
+		<legend>Extended Information</legend>
+			<label class="required">Positives:</label>
+				<p class="approve_data"><?= $this->escape($this->data['titlePros']) ?></p>
+			<label class="required">Negatives:</label>
+				<p class="approve_data"><?= $this->escape($this->data['titleCons']) ?></p>
+			<?= $this->errorDiv($this->errors, 'imageApprove') ?>
+			<label class="required">Image:</label>
+<? if (!empty($this->data['image'])): ?>
+				<input type="hidden" name="image" value="<?= $this->data['image'] ?>" />
+				<p class="approve_data"><img src="<?= $this->baseUrl . '/images/title/pending/' . $this->data['image'] ?>" />
+				<br />
+				<input type="radio" id="imageApproveTrue" name="imageApprove" value="accept" /><label for="imageApproveTrue"> Accept Image</label>
+				<input type="radio" id="imageApproveFalse" name="imageApprove" value="delete" /><label for="imageApproveFalse"> Delete Image</label>
+				<input type="radio" id="imageApproveHold" name="imageApprove" value="hold" /><label for="imageApproveHold"> Hold Image</label>
+				</p>
+<? else: ?>
+				<p class="approve_data">No image submitted</p>
+<? endif ?>
+	</fieldset>
+	<p><br />
+	<?= $this->errorDiv($this->errors, 'titleApprove') ?>
+	Review Action:<br />
+	<input type="radio" id="titleApproveTrue" name="titleApprove" value="approve" /><label for="titleApproveTrue"> Approve Title</label>
+	<br />
+	<input type="radio" id="titleApproveFalse" name="titleApprove" value="deny" /><label for="titleApproveFalse"> Deny Title</label>
+	<br />
+	<input type="radio" id="titleApproveHold" name="titleApprove" value="hold" /><label for="titleApproveHold"> Hold Title</label>
+	</p>
+	<p>
+	<?= $this->errorDiv($this->errors, 'reason') ?>
+	If denying the title, you <u>must</u> give a reason. Keep in mind that the user will be able to see the reason for denial.<br />
+	No reason is required if accepting the title.<br />
+	<textarea name="reason" rows="7" cols="65"></textarea>
+	<p/>
+	<p>
+	<input class="button1" type="submit" value="Submit Form"> | <input class="button1" type="reset" value="Reset Form"></p>
+	</form>

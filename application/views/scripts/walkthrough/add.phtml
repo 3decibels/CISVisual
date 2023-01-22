@@ -1,0 +1,14 @@
+<?= $this->render('header.phtml') ?>
+<?= $this->render('top.phtml') ?>
+
+<div id="Content">
+	<h1>Submit a Walkthrough for <u><?= $this->titleName ?></u></h1>
+	<p>&nbsp;</p>
+<?= $this->render('walkthrough/form.phtml') ?>
+</p>
+<p>&nbsp;</p>
+<p><a href="<?= $this->baseUrl . '/title/' . $this->titleID ?>">&lt;&lt; Return to <?= $this->titleName ?></a></p>
+</div>
+
+<?= $this->render('menu.phtml') ?>
+<?= $this->render('footer.phtml') ?>

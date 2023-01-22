@@ -1,0 +1,412 @@
+body {
+	margin:0px;
+	padding:0px;
+	font-family:verdana, arial, helvetica, sans-serif;
+	color:#333;
+	background-color:#F6EFEF;
+	}
+#Container {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 5;
+}
+h1 {
+	margin:0px 0px 15px 0px;
+	padding:0px;
+	font-size:28px;
+	line-height:28px;
+	font-weight:900;
+	color:#660033;
+	}
+h2 {
+	font-size: 36px;
+	color: #660033;
+	font-style: italic;
+	font-weight: bold;
+	font-variant: small-caps;
+	display: inline;
+	}
+h3 {
+	margin:0px 0px 15px 0px;
+	padding:0px;
+	font-size:22px;
+	line-height:22px;
+	font-weight:900;
+	font-variant: small-caps;
+	color:#666666;
+	}
+
+li {
+	font:13px/20px verdana, arial, helvetica, sans-serif;
+	}
+.backImage {
+	position: fixed;
+	right: 20px;
+	bottom: -50px;
+	z-index: 3;
+	-moz-opacity: 0.12;
+	opacity: 0.12;
+	filter: alpha(opacity=12); 
+	}
+
+#Title caption {
+	font-weight: bold;
+}
+#Title .graph table {
+	border: 1px solid #333333;
+}
+#Content .approve_data {
+	padding-left: 20px;
+}
+
+
+
+
+p {
+	font:13px/20px verdana, arial, helvetica, sans-serif;
+	margin:0px 0px 16px 0px;
+	padding:0px;
+	}
+#Content>p {margin:0px;}
+
+#Content legend {
+	font-weight: bold;
+}
+
+#Content fieldset {
+	margin-top: 10px;
+}
+
+
+#Content form {  /* set width in form, not fieldset (still takes up more room w/ fieldset width */
+  font: Verdana, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-width: 500px;
+  max-width: 600px;
+  width: 560px; 
+}
+
+.smaller {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+.strong {
+	font-weight: bold;
+}
+
+
+.post {
+	font:13px/20px verdana, arial, helvetica, sans-serif;
+	margin:0px 0px 16px 0px;
+	padding:0px;
+}
+.describe {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin-left: 20px;
+}
+.error {
+	background-color: #FFFF66;
+	padding: 7px;
+	margin-top: 30px;
+	margin-bottom: 0px;
+	margin-left: auto;
+	border: 2px groove #000000;
+	margin-right: auto;
+}
+
+img.float {
+	float: right;
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px;
+	padding: 2px;
+}
+
+.category {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #0066CC;
+	display: inline;
+}
+.genre {
+	text-decoration: underline;
+}
+.u_category {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #0066CC;
+	display: inline;
+	text-decoration: underline;
+}
+
+.indent {
+	text-indent: 1em;
+}
+
+#Content fieldset input, textarea, select {
+	margin-left: 20px;
+	border: 1px solid #333333;
+}
+.tr1 {
+}
+.tr2 {
+	background-color: #ECDEDE;
+}
+th {
+	text-align: left;
+	color: #000066;
+	text-decoration: underline;
+}
+th a:link {
+	color: #000066;
+}
+th a:hover {
+	color: #000066;
+	background-color: #DDD;
+}
+th a:visited {
+	color: #000066;
+}
+th .listcat {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 17px;
+	color: #000066;
+	text-align: left;
+}
+
+
+
+#Content form .button1 {
+	border: 1px solid #333333;
+	background-color: #EFEFEF;
+}
+
+#Login a:link {
+	color: #0000CC;
+}
+
+.required {
+	color: #990000;
+	display: block;
+	margin-top: 15px;
+	margin-left: 15px;
+}
+.item {
+	display: block;
+	margin-top: 15px;
+	margin-left: 15px;
+}
+
+
+
+#Login a {
+	display: inline;
+	color: #0000CC;
+}
+td a:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000066;
+}
+td a:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000066;
+	text-decoration: underline;
+}
+td a:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #333333;
+}
+
+
+
+#Login a:visited {
+	color: #0000CC;
+}
+#Login a:hover {
+	color: #006699;
+	text-decoration: underline;
+}
+
+
+
+form {
+}
+
+#Content>p+p {text-indent:30px;}
+
+
+a {
+	color:#09c;
+	font-size:11px;
+	text-decoration:none;
+	font-weight:600;
+	font-family:verdana, arial, helvetica, sans-serif;
+	}
+form {
+	display: inline;
+}
+
+#Login {
+	height: 25px;
+	width: auto;
+	position: absolute;
+	top: 0px;
+	right: 50px;
+	margin: 5px;
+	background-color: #CCCCCC;
+	color: #000000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-align: right;
+	border: 1px solid #000000;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+#Login .buttons {
+ font-family: Verdana, Arial, Helvetica, sans-serif;
+ font-size: 12px;
+ background-color: #EFEFEF;
+ color: #000000;
+ margin-right: 6px;
+ border: 1px solid #660033;
+}
+.fieldcell {
+ width: 120px;
+ font: 12px Verdana, Geneva, Arial, Helvetica, sans-serif;
+ background-color: #FFFFFF;
+ color: #000000;
+ border: 1px solid #660033;
+ margin-right: 0px;
+} 
+input {
+	display: inline;
+}
+#Logo>a:hover {
+	border: 0px;
+}
+
+
+
+a:link {color:#07a;}
+
+a:visited {color:#07a;}
+
+a:hover {
+	background-color:#eee;
+	text-decoration: underline;
+}
+#Logo a:hover {background: none;}
+
+
+#Footer {
+	height: auto;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+	position: static;
+	text-align: center;
+	font-size: 10px;
+	bottom: 0px;
+	width: auto;
+	color: #666666;
+}
+
+
+#Logo {
+	position: absolute;
+	height: auto;
+	width: 250px;
+	left: 0px;
+	top: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+#Footer a:link {
+	color: #333333;
+}
+#Footer a:hover {
+	color: #333333;
+	text-decoration: underline;
+}
+#Footer a:visited {
+	color: #333333;
+}
+
+#Header {
+	position: relative;
+	top: 50px;
+	margin-bottom: 10px;
+	padding:17px 0px 0px 20px;
+	/* For IE5/Win's benefit height = [correct height] + [top padding] + [top and bottom border widths] */
+	height:14px; /* 14px + 17px + 2px = 33px */
+	border-style:solid;
+	border-color:black;
+	border-width:1px 0px; /* top and bottom borders: 1px; left and right borders: 0px */
+	line-height:11px;
+	background-color:#666666;
+
+/* Here is the ugly brilliant hack that protects IE5/Win from its own stupidity. 
+Thanks to Tantek Celik for the hack and to Eric Costello for publicizing it. 
+IE5/Win incorrectly parses the "\"}"" value, prematurely closing the style 
+declaration. The incorrect IE5/Win value is above, while the correct value is 
+below. See http://glish.com/css/hacks.asp for details. */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	height:14px; /* the correct height */
+	}
+#Footer p {
+	font-size: 10px;
+}
+
+/* I've heard this called the "be nice to Opera 5" rule. Basically, it feeds correct 
+length values to user agents that exhibit the parsing error exploited above yet get 
+the CSS box model right and understand the CSS2 parent-child selector. ALWAYS include
+a "be nice to Opera 5" rule every time you use the Tantek Celik hack (above). */
+body>#Header {
+	height:14px;
+}
+
+#Content {
+	margin:60px 50px 70px 200px;
+	padding:10px;
+	z-index: 1;
+	}
+	
+#Title {
+	margin:60px 50px 70px 200px;
+	padding:10px;
+	border-style: solid;
+	border-color: #cccccc;
+	border-width: 3px;
+	}
+
+#Menu {
+	position:absolute;
+	top:100px;
+	left:20px;
+	width:150px;
+	padding:10px;
+	background-color:#EEEEEE;
+	border:1px solid #999;
+	line-height:17px;
+/* Again, the ugly brilliant hack. */
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width:150px;
+	}
+/* Again, "be nice to Opera 5". */
+body>#Menu {width:150px;}
+.style1 {
+font-size: 12px
+}

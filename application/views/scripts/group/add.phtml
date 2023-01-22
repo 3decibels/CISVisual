@@ -1,0 +1,34 @@
+<form action="<?= $this->baseUrl . $this->action ?>" method="post" enctype="multipart/form-data" onsubmit="document.getElementById('submit-button').disabled=true;">
+<?= $this->formHidden('auth', $this->auth) ?>
+	<?= $this->errorDiv($this->errors, 'generic') ?>
+	<fieldset>
+		<legend>Group Information</legend>
+			<?= $this->errorDiv($this->errors, 'groupName') ?>
+			<label for="groupName" class="required">Group Name:</label>
+<?= $this->formText('groupName', $this->values['groupName'],
+	array('id' => 'groupName', 'size' => '40', 'tabindex' => '1')) ?>
+				<p class="describe">The name of your group as you would like it to appear. You may also enter just your username if creating a group for your personal works.</p>
+			<?= $this->errorDiv($this->errors, 'titleDescription') ?>
+			<label for="groupDescription" class="required">Description:</label>
+<?= $this->formTextarea('groupDescription', $this->values['groupDescription'],
+	array('id' => 'groupDescription', 'rows' => 10, 'cols' => 65, 'tabindex' => 2)) ?>
+				<p class="describe">Please provide a description or group bio.<br />
+				This section can be as long as you'd like, so feel free to include group history, mission statements or anything else you feel is worth mentioning.<br />
+				The following BBCode tags are allowed in this section: <b>Bold:</b> ([b][/b]) <i>Italic:</i> ([i][/i]) <u>Underline:</u> ([u][/u]) URLs: ([url]http://[/url] -or- [url=http://]Link Text[/url]) or Images: ([img]http://path/to/image[/img])<br />
+				Straight HTML is not allowed and will be automatically removed if included.</p>
+			<?= $this->errorDiv($this->errors, 'groupURL') ?>
+			<label for="groupURL" class="item">Website URL:</label>
+<?= $this->formText('groupURL', $this->values['groupURL'],
+	array('id' => 'groupURL', 'size' => 35, 'tabindex' => 3)) ?>
+				<p class="describe">If your group has a website, please enter the URL.</p>
+			<label class="required">What is your position within this group?</label>
+			<input type="radio" id="groupLeaderTrue" name="groupLeader" value="1" tabindex="4" <? if ('1' == $this->values['groupLeader']) echo 'checked="checked"' ?> />
+			<label for="groupLeaderTrue"> Leader</label>
+			<input type="radio" id="groupLeaderFalse" name="groupLeader" value="0" tabindex="5" <? if ('0' == $this->values['groupLeader']) echo 'checked="checked"' ?> />
+                        <label for="groupLeaderFalse"> Member</label>
+	<p>
+	NOTE: All submissions of pre-existing or established groups may be subject to verification of the submitter's group membership.<br />
+	<br />
+	<input class="button1" type="submit" value="Submit Title" tabindex="6" id="submit-button"> | <input class="button1" type="reset" value="Reset Form" tabindex="7"></p>
+	</fieldset>
+</form>

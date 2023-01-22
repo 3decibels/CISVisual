@@ -1,0 +1,166 @@
+<?= $this->render('header.phtml') ?>
+<?= $this->render('top.phtml') ?>
+
+<div id="Title">
+	<h2><?= $this->titleName ?></h2>
+	<hr />
+	<h3>Detailed Statistics</h3>
+	<p style="margin-left: 10px"> -- Weighted Overall Average: <strong><?= $this->rating['weighted'] ?></strong><br />
+   -- Raw Overall Average: <strong><?= $this->rating['average'] ?></strong><br />
+   -- Median Overall Rating: <strong><?= $this->rating['median'] ?></strong><br />
+   <br />
+   -- Basic Average: <strong><?= $this->rating['basicAverage'] ?></strong><br />
+   -- Batch Average: <strong><?= $this->rating['batchAverage'] ?></strong><br /> 
+   -- True Batch Average: <strong><?= $this->rating['batchTrue'] ?></strong><br />
+   <br />
+   -- Basic Ratings: <strong><?= $this->rating['basicCount'] ?></strong><br />
+   -- Batch Ratings: <strong><?= $this->rating['batchCount'] ?></strong><br />
+   -- Total Ratings: <strong><?= $this->rating['total'] ?></strong><br />
+  </p>
+    <table width="70%" border="0" cellpadding="0" cellspacing="0" class="graph">
+      <tr valign="bottom">
+        <td>
+          <div align="center">
+            <table border="0" cellpadding="2" cellspacing="0">
+            <caption>Overall Rating (<?= round($this->rating['weighted'], 1) ?>)</caption>
+              <tr valign="bottom">
+                <td><div align="right"></div></td>
+<? for ($n = 1; $n <= 5; $n++): ?>
+                <td><div align="center"><?= $this->graph['ratingOverall']['count'][$n] ?><br />
+                  <img src="/images/bar_25_light.gif" height="<?= $this->graph['ratingOverall']['height'][$n] ?>" width="25" /></div></td>
+<? endfor; ?>
+              </tr>
+              <tr>
+                <td><div align="right">Rating:</div></td>
+                <td><div align="center">1</div></td>
+                <td><div align="center">2</div></td>
+                <td><div align="center">3</div></td>
+                <td><div align="center">4</div></td>
+                <td><div align="center">5</div></td>
+	      </tr>
+            </table>
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <table border="0" cellpadding="2" cellspacing="0">
+            <caption>Story Rating (<?= round($this->rating['story'], 1) ?>)</caption>
+              <tr valign="bottom">
+                <td><div align="right"></div></td>
+<? for ($n = 1; $n <= 5; $n++): ?>
+                <td><div align="center"><?= $this->graph['ratingStory']['count'][$n] ?><br />
+                  <img src="/images/bar_25.gif" height="<?= $this->graph['ratingStory']['height'][$n] ?>" width="25" /></div></td>
+<? endfor; ?>
+              </tr>
+              <tr>
+                <td><div align="right">Rating:</div></td>
+                <td><div align="center">1</div></td>
+                <td><div align="center">2</div></td>
+                <td><div align="center">3</div></td>
+                <td><div align="center">4</div></td>
+                <td><div align="center">5</div></td>
+	      </tr>
+            </table>
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <table border="0" cellpadding="2" cellspacing="0">
+            <caption>Character Rating (<?= round($this->rating['character'], 1) ?>)</caption>
+              <tr valign="bottom">
+                <td><div align="right"></div></td>
+<? for ($n = 1; $n <= 5; $n++): ?>
+                <td><div align="center"><?= $this->graph['ratingCharacter']['count'][$n] ?><br />
+                  <img src="/images/bar_25.gif" height="<?= $this->graph['ratingCharacter']['height'][$n] ?>" width="25" /></div></td>
+<? endfor; ?>
+              </tr>
+              <tr>
+                <td><div align="right">Rating:</div></td>
+                <td><div align="center">1</div></td>
+                <td><div align="center">2</div></td>
+                <td><div align="center">3</div></td>
+                <td><div align="center">4</div></td>
+                <td><div align="center">5</div></td>
+	      </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+  <p>&nbsp;</p>
+    <table width="70%" border="0" cellpadding="0" cellspacing="0" class="graph">
+      <tr valign="bottom">
+        <td>
+          <div align="center">
+            <table border="0" cellpadding="2" cellspacing="0">
+            <caption>Art Rating (<?= round($this->rating['art'], 1) ?>)</caption>
+              <tr valign="bottom">
+                <td><div align="right"></div></td>
+<? for ($n = 1; $n <= 5; $n++): ?>
+                <td><div align="center"><?= $this->graph['ratingArt']['count'][$n] ?><br />
+                  <img src="/images/bar_25.gif" height="<?= $this->graph['ratingArt']['height'][$n] ?>" width="25" /></div></td>
+<? endfor; ?>
+              </tr>
+              <tr>
+                <td><div align="right">Rating:</div></td>
+                <td><div align="center">1</div></td>
+                <td><div align="center">2</div></td>
+                <td><div align="center">3</div></td>
+                <td><div align="center">4</div></td>
+                <td><div align="center">5</div></td>
+	      </tr>
+            </table>
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <table border="0" cellpadding="2" cellspacing="0">
+            <caption>Music Rating (<?= round($this->rating['music'], 1) ?>)</caption>
+              <tr valign="bottom">
+                <td><div align="right"></div></td>
+<? for ($n = 1; $n <= 5; $n++): ?>
+                <td><div align="center"><?= $this->graph['ratingMusic']['count'][$n] ?><br />
+                  <img src="/images/bar_25.gif" height="<?= $this->graph['ratingMusic']['height'][$n] ?>" width="25" /></div></td>
+<? endfor; ?>
+              </tr>
+              <tr>
+                <td><div align="right">Rating:</div></td>
+                <td><div align="center">1</div></td>
+                <td><div align="center">2</div></td>
+                <td><div align="center">3</div></td>
+                <td><div align="center">4</div></td>
+                <td><div align="center">5</div></td>
+	      </tr>
+            </table>
+          </div>
+        </td>
+        <td>
+          <div align="center">
+            <table border="0" cellpadding="2" cellspacing="0">
+            <caption>Voice Rating (<?= round($this->rating['voice'], 1) ?>)</caption>
+              <tr valign="bottom">
+                <td><div align="right"></div></td>
+<? for ($n = 1; $n <= 5; $n++): ?>
+                <td><div align="center"><?= $this->graph['ratingVoice']['count'][$n] ?><br />
+                  <img src="/images/bar_25.gif" height="<?= $this->graph['ratingVoice']['height'][$n] ?>" width="25" /></div></td>
+<? endfor; ?>
+              </tr>
+              <tr>
+                <td><div align="right">Rating:</div></td>
+                <td><div align="center">1</div></td>
+                <td><div align="center">2</div></td>
+                <td><div align="center">3</div></td>
+                <td><div align="center">4</div></td>
+                <td><div align="center">5</div></td>
+	      </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+  <p>&nbsp;</p>
+<p><a href="<?= $this->baseUrl . '/title/' . $this->titleID ?>" >&lt;&lt; Return to <?= $this->titleName ?></a></p>
+</div>
+
+<?= $this->render('menu.phtml') ?>
+<?= $this->render('footer.phtml') ?>

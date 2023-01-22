@@ -1,0 +1,17 @@
+<div id="Logo"><a href="<?= $this->baseUrl ?>/"><img src="<?= $this->baseUrl ?>/images/cisvisual.png" alt="CISVisual" width="250" height="50" border="0" /></a></div>
+
+<div id="Login">
+  <? if (! $this->username): ?>
+  <form action="<?= $this->baseUrl ?>/forum/index.php?action=login2" method="post" accept-charset="<?= $this->charset ?>">
+    <span class="style1">User: </span><input name="user" type="text" class="fieldcell" />
+    <span class="style1"> Password: </span><input name="passwrd" type="password" class="fieldcell" />
+    <input type="hidden" name="cookielength" value="-1" />
+    <input name="" type="submit" class="buttons" value="Log In" /> | <a href="<?= $this->baseUrl ?>/forum/index.php?action=register">Register</a>
+  </form>
+  <? else: ?>
+  <p>You are logged in as: <strong><?= $this->username ?></strong> | <a href="<?= $this->baseUrl ?>/forum/index.php?action=logout;sesc=<?= $this->sesc ?>">Logout</a>
+  </p>
+  <? endif; ?>
+</div>
+
+<div id="Header"></div>

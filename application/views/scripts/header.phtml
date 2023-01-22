@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<? if (isset($this->metaKey)): ?>
+<meta name="keywords" content="visual novel, visual, novel, dating sim, interactive novel, kinetic novel, visual novel ratings, online visual novel, ratings" />
+<meta name="description" content="Information on visual novels, providing ratings and recommendations to help find new and interesting titles to enjoy." />
+<? endif ?>
+<meta name="verify-v1" content="MdOYCiD9YuY7jBp6QtmHZNyyGhQ+SYo/doqyx7hVkfg=" />
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="<?= $this->baseUrl ?>/styles/IE7styles.css" /><![endif]-->
+<title><?= $this->title ?></title>
+<? if (isset($this->header['scripts'])): ?>
+<? foreach ($this->header['scripts'] as $script): ?>
+<script src="/scripts/<?= $script ?>" type="text/javascript"></script>
+<? endforeach ?>
+<? endif ?>
+<style type="text/css" media="all">@import "<?= $this->baseUrl ?>/styles/layout1_v2.css";
+</style>
+</head>
+<body onLoad="setFocus()">

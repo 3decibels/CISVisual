@@ -1,0 +1,51 @@
+<form name="walkthrough" action="<?= $this->baseUrl . '/walkthrough/add/tid/' . $this->titleID ?>" method="post" enctype="multipart/form-data" onsubmit="document.getElementById('submit-button').disabled=true;">
+	<?= $this->formHidden('auth', $this->auth) ?>
+	<?= $this->errorDiv($this->errors, 'generic') ?>
+	<fieldset>
+		<legend>General Information</legend>
+			<?= $this->errorDiv($this->errors, 'walkTitle') ?>
+			<label for="walkTitle" class="item">Walkthrough Title:</label>
+<?= $this->formText('walkTitle', $this->values['walkTitle'],
+	array('id' => 'walkTitle', 'tabindex' => '1', 'size' => '45')) ?>
+				<p class="describe">Title of the walkthrough.<br />
+				If left blank, a generic title will be provided instead.</p>
+			<?= $this->errorDiv($this->errors, 'walkAttrib') ?>
+			<label for="walkAttrib" class="item">Credit Me with Submission:</label>
+				<input type="radio" id="walkAttribSelf" name="walkAttrib" value="self" tabindex="2" <? if ('self' == $this->values['walkAttrib']) echo 'checked="checked"' ?> />
+				<label for="walkAttribSelf"> Yes</label>
+				<br />
+				<input type="radio" id="walkAttribAnon" name="walkAttrib" value="anon" tabindex="3" <? if ('anon' == $this->values['walkAttrib']) echo 'checked="checked"' ?> />
+				<label for="walkAttribAnon"> No</label>
+				<p class="describe">The walkthrough listing will show your username as the submitter unless you do not wish to be credited for the submission.<br />
+				Example: If submitting on behalf of somebody else, you may not want your name falsely attributed to another's work.</p>
+			<?= $this->errorDiv($this->errors, 'walkSubmit') ?>
+			<label for="walkSubmit" class="item">Type of Submission:</label>
+				<input type="radio" id="walkSubmitText" name="walkSubmit" value="text" tabindex="4" <? if ('text' == $this->values['walkSubmit']) echo 'checked="checked"' ?> onChange="setFocus()" />
+				<label for="walkSubmitText"> Text</label>
+				<?= ($this->edit)? '<p class="describe" style="margin-bottom: 0px">Edit the existing walkthrough in place.</p>' : '' ?>
+				<br />
+				<input type="radio" id="walkSubmitFile" name="walkSubmit" value="file" tabindex="5" <? if ('file' == $this->values['walkSubmit']) echo 'checked="checked"' ?> onChange="setFocus()" />
+                                <label for="walkSubmitFile"> File Upload</label>
+				<?= ($this->edit)? '<p class="describe">Overwrite the walkthrough with the contents of a file.</p>' : '' ?>
+	</fieldset>
+	<fieldset id="submitText" style="display: none">
+                <legend>Text Submission</legend>
+			<?= $this->errorDiv($this->errors, 'walkText') ?>
+                        <label for="walkText" class="item">Walkthrough Content:</label>
+<?= $this->formTextarea('walkText', $this->values['walkText'],
+        array('id' => 'walkText', 'rows' => '30', 'cols' => '95')) ?>
+                        <p class="describe">Please enter the body of the walkthrough.<br />
+                        Keep in mind that the walkthrough text will not be formatted in any way. What you type is what you get. This means no HTML, BBCode, etc.</p>
+                                <br />
+                                <input class="button1" type="submit" id ="submit-button" value="Submit Walkthrough">
+        </fieldset>
+	<fieldset id="submitFile" style="display: none">
+		<legend>File Upload</legend>
+			<?= $this->errorDiv($this->errors, 'walkFile') ?>
+			<label for="walkFile" class="item">Walkthrough File:</label>
+				<input type="file" name="walkFile" />
+				<p class="describe">Only raw text (.txt) files will be accepted.</p>
+				<br />
+				<input class="button1" type="submit" id ="submit-button" value="Submit Walkthrough">
+	</fieldset>
+</form>

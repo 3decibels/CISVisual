@@ -1,0 +1,12 @@
+<?= $this->render('header.phtml') ?>
+<?= $this->render('top.phtml') ?>
+
+<div id="Content">
+	<h1>Rating Removed</h1>
+	<p>Your rating for "<?= $this->titleName ?>" has been removed from the database.</p>
+	<p>&nbsp;</p>
+	<p><a href="<?= $this->baseUrl . '/title/' . $this->titleID ?>">&lt;&lt; Return to <?= $this->titleName ?></a></p>
+</div>
+
+<?= $this->render('menu.phtml') ?>
+<?= $this->render('footer.phtml') ?>

@@ -1,0 +1,19 @@
+<?= $this->render('header.phtml') ?>
+<?= $this->render('top.phtml') ?>
+<div id="Content">
+	<h1>Welcome to CISVisual</h1>
+	<p>Welcome to CISVisual, the site dedicated to providing the very best in visual novel descrptions, ratings and recommendations. The site is currently under development, but please feel free to have a look around.</p>
+	<p>From the month of October until the end of time (or so it seems), the site will be undergoing a complete revision before it is brought into a finalized state. During this time, I ask that you bear with me while these major changes occur. Up-to-date information on what changes are happening on the site is always available on the forums, so be sure to check in regularly. In addition, if you see anything you like or dislike about the site, and want to make a comment or suggestion, please don't hesistate to start a thread about it as well. </p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<h1>Recent News</h1>
+	<hr />
+	<? require_once($this->forumPath . 'SSI.php') ?>
+	<? ssi_boardNews($this->news['board'], $this->news['posts']) ?>
+	<hr />
+	<p>&nbsp;</p>
+	<p><a href="<?= $this->rootUrl ?>/forum/index.php?board=4.0" title="CISVisual Forums">View past news posts &gt;&gt;</a></p>
+</div>
+
+<?= $this->render('menu.phtml') ?>
+<?= $this->render('footer.phtml') ?>

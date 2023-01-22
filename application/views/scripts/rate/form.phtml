@@ -1,0 +1,80 @@
+<?= $this->render('header.phtml') ?>
+<?= $this->render('top.phtml') ?>
+
+<div id="Content">
+	<h1>Submit a Rating for <u><?= $this->titleName ?></u></h1>
+	<p>There are two different ways you can submit a rating: Basic or Batch. A basic rating submits a single overall rating of the visual novel, while a batch rating allows you to rate different aspects individually in addition to providing an overall rating.</p>
+	<p>&nbsp;</p>
+	<?= $this->errorDiv($this->errors, 'generic') ?>
+<? if (! empty($this->ratingData) && null != $this->ratingData['ratingMethod']): ?>
+	<form action="<?= $this->baseUrl . '/rate/remove' ?>" method="post" onsubmit="document.getElementById('submit-button-remove').disabled=true;">
+	<?= $this->formHidden('auth', $this->auth) ?>
+	<?= $this->formHidden('tid', $this->titleID) ?>
+	<fieldset>
+		<legend>Remove Rating</legend>
+			<p>If you would like to remove your old rating entirely, check the box below.</p>
+			<?= $this->errorDiv($this->errors, 'removeRating') ?>
+			<input type="checkbox" id="removeRating" name="removeRating" value="true" tabindex="1" />
+			<label for="removeRating">Remove old rating</label>
+			<br /><br />
+			<input class="button1" type="submit" id ="submit-button-remove" value="Remove Rating" tabindex="2">
+	</fieldset>
+	</form>
+<? endif; ?>
+	<form action="<?= $this->baseUrl . '/rate/basic' ?>" method="post" onsubmit="document.getElementById('submit-button-basic').disabled=true;">
+	<?= $this->formHidden('auth', $this->auth) ?>
+	<?= $this->formHidden('tid', $this->titleID) ?>
+	<fieldset>
+		<legend>Basic Rating</legend>
+			<?= $this->errorDiv($this->errors, 'ratingBasic') ?>
+			<label for="ratingBasic" class="item">Basic Rating:</label>
+<?= $this->formSelect('ratingBasic', ('basic' == $this->ratingData['ratingMethod'])? $this->ratingData['ratingWeight'] : null,
+	array('id' => 'ratingBasic', 'tabindex' => 3), $this->ratingBasicOptions) ?>
+				<p class="describe">Basic overall rating of the visual novel.</p>
+				<br />
+				<input class="button1" type="submit" id ="submit-button-basic" value="Submit Rating" tabindex="4"><input class="button1" type="reset" value="Reset Form" tabindex="5">
+	</fieldset>
+	</form>
+	<form action="<?= $this->baseUrl . '/rate/batch' ?>" method="post" onsubmit="document.getElementById('submit-button-batch').disabled=true;">
+	<?= $this->formHidden('auth', $this->auth) ?>
+	<?= $this->formHidden('tid', $this->titleID) ?>
+	<fieldset>
+		<legend>Batch Rating</legend>
+			<?= $this->errorDiv($this->errors, 'ratingStory') ?>
+			<label for="ratingStory" class="item">Story Rating:</label>
+<?= $this->formSelect('ratingStory', $this->ratingData['ratingStory'],
+	array('id' => 'ratingStory', 'tabindex' => 6), $this->ratingStoryOptions) ?>
+			<?= $this->errorDiv($this->errors, 'ratingCharacter') ?>
+			<label for="ratingCharacter" class="item">Character Rating:</label>
+<?= $this->formSelect('ratingCharacter', $this->ratingData['ratingCharacter'],
+	array('id' => 'ratingCharacter', 'tabindex' => 7), $this->ratingCharacterOptions) ?>
+			<?= $this->errorDiv($this->errors, 'ratingArt') ?>
+			<label for="ratingArt" class="item">Art Rating:</label>
+<?= $this->formSelect('ratingArt', $this->ratingData['ratingArt'],
+	array('id' => 'ratingArt', 'tabindex' => 8), $this->ratingArtOptions) ?>
+			<?= $this->errorDiv($this->errors, 'ratingMusic') ?>
+			<label for="ratingMusic" class="item">Music Rating:</label>
+<?= $this->formSelect('ratingMusic', $this->ratingData['ratingMusic'],
+	array('id' => 'ratingMusic', 'tabindex' => 9), $this->ratingMusicOptions) ?>
+			<?= $this->errorDiv($this->errors, 'ratingVoice') ?>
+			<label for="ratingVoice" class="item">Voice Rating:</label>
+<?= $this->formSelect('ratingVoice', $this->ratingData['ratingVoice'],
+	array('id' => 'ratingVoice', 'tabindex' => 10), $this->ratingVoiceOptions) ?>
+				<p class="describe">If the title is not voiced or you did not play the voiced version, leave at "No Rating"</p>
+			<?= $this->errorDiv($this->errors, 'ratingTotal') ?>
+			<label for="ratingTotal" class="item">Overall Rating</label>
+<?= $this->formSelect('ratingTotal', $this->ratingData['ratingTotal'],
+	array('id' => 'ratingTotal', 'tabindex' => 11), $this->ratingTotalOptions) ?>
+				<p class="describe">Auto-Complete will average your above ratings and submit as the overall rating.</p>
+				<br />
+				<input class="button1" type="submit" id ="submit-button-batch" value="Submit Ratings" tabindex="12"><input class="button1" type="reset" value="Reset Form" tabindex="13">
+	</fieldset>
+	</form>
+	</p>
+	<p>&nbsp;</p>
+	<p><a href="<?= $this->baseUrl . '/title/' . $this->titleID ?>">&lt;&lt; Return to <?= $this->titleName ?></a></p>
+
+</div>
+
+<?= $this->render('menu.phtml') ?>
+<?= $this->render('footer.phtml') ?>

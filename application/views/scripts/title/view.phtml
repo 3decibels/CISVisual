@@ -1,0 +1,130 @@
+<?= $this->render('header.phtml') ?>
+<?= $this->render('top.phtml') ?>
+
+<div id="Title">
+	<h2><?= $this->escape($this->titleData['titleName']) ?></h2>
+	<hr />
+
+	<?= $this->imageOutput ?>
+
+	<p class="indent"/><?= $this->titleData['titleDescription'] ?>
+	<br /><br />
+
+<? if (isset($this->alternateList)): ?>
+	<span class="category">Alternate Names: </span><?= $this->alternateList ?>
+	<br />
+<? endif; ?> 
+
+<? /*
+	<span class="category">Genres:</span> <span class="genre">Drama</span> <span class="genre">Psychological</span> <span class="genre">Suspense</span> 
+	<br />
+*/ ?>
+
+<? if (isset($this->titleData['titleComments'])): ?>
+	<span class="category">Comments:</span> <?= $this->titleData['titleComments'] ?>
+	<br />
+<? endif; ?>
+	<br />
+
+	<span class="category">Rating:</span> <span style="font-size: 17px; font-weight: bold; color: #000;"><?= $this->rating['weighted'] ?> / 5</span> <a class="sub_link" href="<?= $this->baseUrl . '/rate/' . $this->titleData['titleID'] ?>">(Rate This Title)</a>&nbsp;
+<? if ('--Not Enough Ratings Recorded--' != $this->rating['weighted']): ?>
+<a class="sub_link" href="<?= $this->baseUrl . '/title/detail/' . $this->titleData['titleID'] ?>">(Detailed Statistics)</a>
+<? endif; ?>
+<br/>
+<? if (isset($this->titleData['titlePros']) && isset($this->titleData['titleCons'])): ?>
+	<span class="category">Pros:</span> <?= $this->titleData['titlePros'] ?><br/>
+	<span class="category">Cons:</span> <?= $this->titleData['titleCons'] ?><br/>
+<? endif; ?>
+<? /*
+	<!-- <span class="category">Community Reaction:</span> Mostly positive, above average popularity <a class="sub_link" href="./rate.php?tid=2">(Rate This Title)</a> <span class="sub_link">(Detailed Statistics)</span><br/> -->
+	<!-- <span class="category">Similar Titles:</span>  <a id="simlink" class="sub_link" onClick="document.getElementById('similar').style.display = 'block'; document.getElementById('simlink').style.display = 'none'; return false;" href="javascript:void(0)">(View All)</a><span id="similar"> </span> -->
+*/ ?>
+
+<p/>
+
+<? /*
+<p><span class="u_category">Content Details</span>
+<br/>
+Action: Medium<br/>
+Humor: Medium<br/>
+Sci-Fi: Medium<br/>
+Suspense: High, the clock is ticking the entire time.<br/>
+Mystery: Medium<br/>
+Drama: Medium<br/>
+Romance: Medium/Low<br/>
+WTF-Factor: High, final unlockable path will make you double-take.<br/>
+<br/>
+</p>
+*/ ?>
+
+<p><span class="u_category">Title Details</span>
+<ul>
+<li>Created By: <?= $this->titleData['titleCreator'] ?></li>
+<li>Release Type: <?= $this->titleData['titleType'] ?></li>
+<? if (isset($this->titleData['titleYear'])): ?>
+<li>Year of Release: <?= $this->titleData['titleYear'] ?></li>
+<? endif; ?>
+<li>Type of Gameplay: <?= $this->titleData['titlePlot'] ?></li>
+<li>Availability In English: <?= $this->titleData['titleAvailable'] ?></li>
+</ul>
+</p>
+
+<p>&nbsp;</p>
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="60%" valign="top">
+      <div class="subcat">
+        <div class="subcat-header">
+          Walkthroughs
+          <div align="right" class="subcat-header-right">
+            <a href="#">Add/Edit Walkthrough</a>
+          </div>
+        </div>
+<? if (false === $this->walkthroughs): ?>
+        <p>No walkthroughs have been submitted</p>
+<? else: ?>
+	<table width="100%">
+          <tr>
+            <th align="left" width="35%">Title</th>
+            <th align="center" width="20%">Submitter</th>
+            <th align="center" width="20%">Accessed</th>
+            <th align="left" width="25%"></th>
+          </tr>
+  <? foreach ($this->walkthroughs as $walkthrough): ?>
+          <tr>
+            <td align="left"><?= $walkthrough['walkTitle'] ?></td>
+            <td align="center"><?= ($walkthrough['walkAnonSubmission'])? 'Anonymous' : $walkthrough['memberName'] ?></td>
+            <td align="center"><?= $walkthrough['walkAccessed'] ?> Times</td>
+            <td align="right"><span style="font-size: 12px"><a href="<?= $this->rootUrl ?>/walkthrough/view/wid/<?= $walkthrough['walkID'] ?>">View</a> | <a href="<?= $this->rootUrl ?>/walkthrough/download/wid/<?= $walkthrough['walkID'] ?>">Download</a></span></td>
+          </tr>
+  <? endforeach ?>
+        </table>
+<? endif ?>
+      </div>
+    </td>
+    <td width="1%">
+    </td>
+    <td width="39%" valign="top">
+<? /*
+      <div class="subcat">
+        <div class="subcat-header">
+          User-Submitted Reviews
+          <div align="right" class="subcat-header-right">
+            Add/Edit/Report Review
+          </div>
+        </div>
+	<p><br/>No reviews have been submitted.</p>
+      </div>
+*/ ?>
+    </td>
+  </tr>
+</table>
+
+
+<p>&nbsp;</p>
+<p><a href="<?= $this->baseUrl . '/list' ?>" >&lt;&lt; Return to the Visual Novel Index</a></p>
+</div>
+
+<?= $this->render('menu.phtml') ?>
+<?= $this->render('footer.phtml') ?>

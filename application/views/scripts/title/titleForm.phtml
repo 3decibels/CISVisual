@@ -1,0 +1,90 @@
+<form action="<?= $this->baseUrl . $this->action ?>" method="post" enctype="multipart/form-data" onsubmit="document.getElementById('submit-button').disabled=true;">
+<?= $this->formHidden('auth', $this->auth) ?>
+	<?= $this->errorDiv($this->errors, 'generic') ?>
+	<fieldset>
+		<legend>General Information</legend>
+			<?= $this->errorDiv($this->errors, 'titleName') ?>
+			<label for="titleName" class="required">Title Name:</label>
+<?= $this->formText('titleName', $this->formValues['titleName'],
+	array('id' => 'titleName', 'size' => '40', 'tabindex' => '1')) ?>
+				<p class="describe">If commercially available, please use the official English release title.
+				Otherwise, the translated official title is preferred.</p>
+			<?= $this->errorDiv($this->errors, 'alternateNames') ?>
+			<label for="alternateNames" class="item">Alternate Names:</label>
+<?= $this->formTextarea('alternateNames', $this->formValues['alternateNames'],
+	array('id' => 'alternateNames', 'rows' => 4, 'cols' => 40, 'tabindex' => 2)) ?>
+				<p class="describe">Please list any additional names by which the title may be known.
+				Can be either English or Japanese.<br />
+				One alternate per line.</p>
+			<?= $this->errorDiv($this->errors, 'titleDescription') ?>
+			<label for="titleDescription" class="required">Description:</label>
+<?= $this->formTextarea('titleDescription', $this->formValues['titleDescription'],
+	array('id' => 'titleDescription', 'rows' => 10, 'cols' => 65, 'tabindex' => 2)) ?>
+				<p class="describe">Please provide a short description of the story in your own words if possible.<br />
+				If using a desription from somewhere else, remember to credit the source. No spoilers, please!</p>
+			<?= $this->errorDiv($this->errors, 'titleCreator') ?>
+			<label for="titleCreator" class="required">Creator:</label>
+<?= $this->formText('titleCreator', $this->formValues['titleCreator'],
+	array('id' => 'titleCreator', 'size' => 35, 'tabindex' => 3)) ?>
+				<p class="describe">Person or comapny primarily responsible for creating the game.</p>
+			<?= $this->errorDiv($this->errors, 'titleYear') ?>
+			<label for="titleYear" class="item">Year of Release:</label>
+<?= $this->formText('titleYear', $this->formValues['titleYear'],
+	array('id' => 'titleYear', 'size' => 4, 'tabindex' => 4)) ?>
+				<p class="describe">The game's original year of release.</p>
+			<?= $this->errorDiv($this->errors, 'titleComments') ?>
+			<label for="titleComments" class="item">Extra Comments:</label>
+<?= $this->formTextarea('titleComments', $this->formValues['titleComments'],
+	array('id' => 'titleComments', 'rows' => 8, 'cols' => 65, 'tabindex' => 5)) ?>
+				<p class="describe">Optional extra information about the game that is worth mentioning.<br />
+				Ex: Cultural significance, industry milestone, claims to fame etc...</p>
+	</fieldset>
+	<fieldset>
+		<legend>Gameplay Details</legend>
+			<?= $this->errorDiv($this->errors, 'titleType') ?>
+			<label for="titleType" class="required">Release Type:</label>
+<?= $this->formSelect('titleType', $this->formValues['titleType'],
+	array('id' => 'titleType', 'tabindex' => 6), $this->titleTypeOptions) ?>
+			<?= $this->errorDiv($this->errors, 'titlePlot') ?>
+			<label for="titlePlot" class="required">Plot Type:</label>
+<?= $this->formSelect('titlePlot', $this->formValues['titlePlot'],
+	array('id' => 'titlePlot', 'tabindex' => 7), $this->titlePlotOptions) ?>
+			<?= $this->errorDiv($this->errors, 'titleAvailable') ?>
+			<label for="titleAvailable" class="required">Availability in English:</label>
+<?= $this->formSelect('titleAvailable', $this->formValues['titleAvailable'],
+	array('id' => 'titleAvailable', 'tabindex' => 8), $this->titleAvailableOptions) ?>
+			<?= $this->errorDiv($this->errors, 'titleAdult') ?>
+			<label class="required">Eroge Title:</label>
+				<input type="radio" id="titleAdultTrue" name="titleAdult" value="1" tabindex="9" <? if ('1' == $this->formValues['titleAdult']) echo 'checked="checked"' ?> />
+				<label for="titleAdultTrue"> Yes</label>
+				<input type="radio" id="titleAdultFalse" name="titleAdult" value="0" tabindex="9" <? if ('0' == $this->formValues['titleAdult']) echo 'checked="checked"' ?> />
+				<label for="titleAdultFalse"> No</label>
+	</fieldset>
+	<fieldset>
+		<legend>Extended Information</legend>
+			<?= $this->errorDiv($this->errors, 'titlePros') ?>
+			<label for="titlePros" class="item">Positives:</label>
+<?= $this->formTextarea('titlePros', $this->formValues['titlePros'],
+	array('id' => 'titlePros', 'rows' => 4, 'cols' => 55, 'tabindex' => 10)) ?>
+				<p class="describe">Information about some of the game's strong points.</p>
+			<?= $this->errorDiv($this->errors, 'titleCons') ?>
+			<label for="titleCons" class="item">Negatives:</label>
+<?= $this->formTextarea('titleCons', $this->formValues['titleCons'],
+	array('id' => 'titleCons', 'rows' => 4, 'cols' => 55, 'tabindex' => 11)) ?>
+				<p class="describe">Information about where the game could use improvement.</p>
+<? if ('add' == $this->mode): ?>
+			<?= $this->errorDiv($this->errors, 'image') ?>
+			<label for="image" class="item">Image:</label>
+<?= $this->formFile('image', null,
+	array('id' => 'image', 'tabindex' => 12)) ?>
+				<p class="describe">Images must be of type JPG, GIF or PNG, be no larger than either 250px X 350px or 350px X 250px, and no more than 50kb in file size.<br />
+				Please do not submit anything inappropriate: No nudity, swear words, inappropriate gestures etc.<br />
+				Images must capture the overall spirit of the game, but do not necessarily have to be from the box art.<br />
+				All images will be screened before being accepted into the entry.</p>
+<? endif; ?>
+	</fieldset>
+	<p><br />
+	NOTE: All title submissions will be reviewed by a member of the staff before becoming viewable.<br />
+	<br />
+	<input class="button1" type="submit" value="Submit Title" tabindex="13" id="submit-button"> | <input class="button1" type="reset" value="Reset Form" tabindex="14"></p>
+	</form>
